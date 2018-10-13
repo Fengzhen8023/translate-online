@@ -109,7 +109,7 @@
 </script>
 ```
 
-在 **App.vue** 组件接收到子组件传递过来的数据之后，开始请求百度翻译API，进行翻译。这里因为是跨域请求数据，所以要使用jsonp，如果你不了解如何跨域请求数据，可以参考文章：[Vue笔记——解决Vue请求No 'Access-Control-Allow-Origin' 错误]()
+在 **App.vue** 组件接收到子组件传递过来的数据之后，开始请求百度翻译API，进行翻译。这里因为是跨域请求数据，所以要使用jsonp，如果你不了解如何跨域请求数据，可以参考文章：[Vue笔记——解决Vue请求No 'Access-Control-Allow-Origin' 错误](https://blog.csdn.net/fengzhen8023/article/details/83035596)
 
  **App.vue** 组件主要的代码如下：
 
