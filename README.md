@@ -22,7 +22,7 @@
 
 ##### 1.搭建项目，安装vue-resource，配置jQuery库
 
-首先我们要做的是使用Vue脚手架搭建一个项目，因为我的这个项目中使用到了vue-resource组件和jQuery第三方库，所以建议你在完成项目搭建之后就安装vue-resource组件和配置jQuery，如果你不会配置jQuery，可以参考文章：[Vue笔记——Vue组件中引入jQuery]()。
+首先我们要做的是使用Vue脚手架搭建一个项目，因为我的这个项目中使用到了vue-resource组件和jQuery第三方库，所以建议你在完成项目搭建之后就安装vue-resource组件和配置jQuery，如果你不会配置jQuery，可以参考文章：[Vue笔记——Vue组件中引入jQuery](https://blog.csdn.net/fengzhen8023/article/details/83047090)。
 
 
 ##### 2.申请并掌握百度翻译API接口
@@ -34,7 +34,7 @@
 
 ![](https://upload-images.jianshu.io/upload_images/3879603-81bbaf8bcdb73a46.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-2.然后下载它的实例DEMO，百度翻译的API是需要给数据MD5加密的，所以在它的DEMO里面会有一个md5.js脚本文件，我们需要在组件中引入它对数据进行加密。如果你不知道如何在Vue组件中引入外部js脚本文件，可以参考文章：[Vue笔记——在Vue项目中引入外部js文件](https://www.jianshu.com/p/35ea4c58cd66)。
+2. 然后下载它的实例DEMO，百度翻译的API是需要给数据MD5加密的，所以在它的DEMO里面会有一个md5.js脚本文件，我们需要在组件中引入它对数据进行加密。如果你不知道如何在Vue组件中引入外部js脚本文件，可以参考文章：[Vue笔记——在Vue项目中引入外部js文件](https://blog.csdn.net/fengzhen8023/article/details/82989038)。
 
 ##### 3.开始编写项目代码
 
@@ -44,7 +44,7 @@
 
 **translateForm** 组件的主要代码：
 
-```vue
+```js
 <template>
     <div id="translateForm">
 
@@ -151,38 +151,16 @@ getText: function (text, lan) {
 
 ## 三、总结
 
-以上只是对这个项目的这个项目的简要概括，列出了主要的代码，如果大家对这个项目感兴趣的话，可以直接查看源代码。
+以上只是对这个项目的这个项目的简要概括，列出了主要的代码，如果大家对这个项目感兴趣的话，可以直接查看源代码。，GitHub地址：https://github.com/Fengzhen8023/translate-online
 
 源代码在使用的时候，一定要提前申请你的百度翻译API，将申请到的APP ID和秘钥填写到对应的位置，即可使用。
 
 
 
-```vue
 
-getText: function (text, lan) {
-    this.translateing_text = text;
-    this.language = lan;
 
-    // 初始化要传递给API的数据
-    var appid = '在这输入你的百度翻译APP ID';
-    var key = '在这输入你的百度翻译的秘钥';
-    var salt = (new Date).getTime();
-    var query = this.translateing_text;
-    var from = 'zh';
-    var to = this.language;
-    var str1 = appid + query + salt + key;
-    var sign = MD5(str1);
 
-    this.$http.jsonp("http://api.fanyi.baidu.com/api/trans/vip/translate?q=" + query + "&from=" + from + "&to=" + to + "&appid=" + appid + "&salt=" + salt + "&sign=" + sign, {}, {
-    headers: {},
-    emulateJSON: true
-    })
-    .then(function (response) {
-    	this.translated_text = response.body.trans_result[0].dst;
-        console.log(this.translated_text);
-    })
-    }
-```
+
 
 
 
